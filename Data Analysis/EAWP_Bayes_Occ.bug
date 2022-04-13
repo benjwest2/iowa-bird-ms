@@ -1,0 +1,41 @@
+model
+{
+
+# process model
+for (i in 1:n) {
+
+  logit(prob_occ[i]) <- b00 + b01*num_tree_spp[i] + b02*live_basal[i] + b03*oak_prop[i] + b04*can_close_prop[i] + b05*shrub_dens[i] + b06*prop_forest_1km[i] + b07*prop_forest_10km[i]
+
+  true_occ[i] ~ dbern(prob_occ[i])
+  }
+  
+# data model
+for (i in 1:n) {
+
+    # We removed wind speed from the model because some values are NA
+    logit(prob_detection_vis1[i]) <- true_occ[i] * (b08*tssr_vis_1[i] + b09*tssr_sq_vis_1[i] + b10*jday_vis_1[i] + b11*jday_sq_vis_1[i]+ b12*obs_vis_1[i])
+    logit(prob_detection_vis2[i]) <- true_occ[i] * (b08*tssr_vis_2[i] + b09*tssr_sq_vis_2[i] + b10*jday_vis_2[i] + b11*jday_sq_vis_2[i] + b12*obs_vis_2[i])
+  
+    detect_vis_1[i] ~ dbern(prob_detection_vis1[i])
+    detect_vis_2[i] ~ dbern(prob_detection_vis2[i])
+  }
+
+# priors
+b00 ~ dnorm(0, 0.1)
+b01 ~ dnorm(0, 0.1)
+b02 ~ dnorm(0, 0.1)
+b03 ~ dnorm(0, 0.1)
+b04 ~ dnorm(0, 0.1)
+b05 ~ dnorm(0, 0.1)
+b06 ~ dnorm(0, 0.1)
+b07 ~ dnorm(0, 0.1)
+b08 ~ dnorm(0, 0.1)
+b09 ~ dnorm(0, 0.1)
+b10 ~ dnorm(0, 0.1)
+b11 ~ dnorm(0, 0.1)
+b12 ~ dnorm(0, 0.1)
+
+
+
+}
+  
