@@ -1,4 +1,5 @@
-#A slew of functions to run gdistamp models in unmarked.
+#A slew of functions to run gdistamp models in unmarked. (This script isn't
+#standalone and is meant to be called y "gdistsamp_BMW_S20.R")
 
 #Libraries####
 library(unmarked)

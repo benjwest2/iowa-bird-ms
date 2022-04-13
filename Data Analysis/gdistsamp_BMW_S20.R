@@ -1,12 +1,13 @@
+#Script from a lunch hour workshop I gave on hierarchical distance sampling
 
 #Load functions from the other file. You'll need tidyverse and unmarked installed to do this.
-source("Lunchinators/Abrev gdistsamp functions.R")
+source("Data Analysis/Abrev gdistsamp functions.R")
 
 #Load data####
 #Birds and covariates that can change between visits
-birds <- read_csv("Lunchinators/ACFL_data_2018_2019.csv")
+birds <- read_csv("Input Data/ACFL_data_2018_2019.csv")
 #Static (habitat) covariates. These data are center scaled
-hab <- read_csv("Lunchinators/veg_scale_2018_2019.csv")
+hab <- read_csv("Input Data/veg_scale_2018_2019.csv")
 
 
 #Look at current data structure

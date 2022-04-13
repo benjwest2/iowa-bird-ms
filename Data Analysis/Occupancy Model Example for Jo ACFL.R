@@ -1,3 +1,7 @@
+#Script written in 2022 to help explain occupancy modeling in unmarked to a
+#friend. Uses my current (at the time of writing) approach to data wrangling,
+#which I hope is more elegant than some of the other scripts in this project!
+
 library(tidyverse)
 library(unmarked)
 library(skimr)
@@ -8,12 +12,12 @@ library(skimr)
 #Start by reading in data####
 
 #Birds and covariates that can change between visits
-birds <- read_csv("ACFL_data_2018_2019.csv")
+birds <- read_csv("Input Data/ACFL_data_2018_2019.csv")
 
 #Static (habitat) covariates. These data are center scaled, which means
 #they were transformed to all have a mean of 0 and standard deviation of 1 
 #(don't worry about it)
-hab <- read_csv("veg_scale_2018_2019.csv")
+hab <- read_csv("Input Data/veg_scale_2018_2019.csv")
 
 
 skim(birds)
